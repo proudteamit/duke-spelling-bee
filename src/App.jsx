@@ -202,8 +202,8 @@ export default function SpellingBeeGame() {
         🦄
       </div>
 
-      <div className="bg-white w-full max-w-2xl rounded-[40px] shadow-2xl border-[6px] border-yellow-300 p-8 text-center relative z-10">
-        <h1 className="text-6xl font-black text-yellow-500 animate-pulse mb-3">
+      <div className="card-surface w-full max-w-2xl rounded-[40px] border-yellow-300 p-8 text-center relative z-10">
+        <h1 className="hero-title text-6xl font-black text-yellow-500 animate-pulse mb-3">
           🐝 Spelling Bee
         </h1>
 
