@@ -191,4 +191,112 @@
     bottom: -80px;
     left: 12%;
   }
+
+  @media (max-width: 900px) {
+    .card-surface {
+      padding: 2rem;
+      border-radius: 32px;
+    }
+
+    .hero-title {
+      font-size: 4.5rem;
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .btn-accent {
+      padding: 0.95rem 1.4rem;
+      font-size: 1rem;
+    }
+
+    .answer-input {
+      font-size: 1.6rem;
+      padding: 1.1rem 1.2rem;
+    }
+
+    .hint-card {
+      padding: 1.25rem;
+    }
+
+    .word-chip {
+      padding: 0.95rem 0.8rem;
+    }
+
+    .message-bubble {
+      font-size: 1.55rem;
+      padding: 0.95rem 1.25rem;
+    }
+
+    .bubble-1 {
+      width: 180px;
+      height: 180px;
+      top: -28px;
+      left: -8px;
+    }
+
+    .bubble-2 {
+      width: 170px;
+      height: 170px;
+      right: -48px;
+      top: 18%;
+    }
+
+    .bubble-3 {
+      width: 220px;
+      height: 220px;
+      bottom: -64px;
+      left: 8%;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .page-bg {
+      background-image:
+        radial-gradient(circle at 10% 12%, rgba(59, 130, 246, 0.24), transparent 18%),
+        radial-gradient(circle at 85% 16%, rgba(236, 72, 153, 0.22), transparent 20%),
+        radial-gradient(circle at 20% 82%, rgba(251, 191, 36, 0.18), transparent 24%),
+        linear-gradient(180deg, #fffbeb 0%, #fce7f3 100%);
+    }
+
+    .card-surface {
+      padding: 1.75rem;
+    }
+
+    .hero-title {
+      font-size: 3.4rem;
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .btn-accent {
+      width: 100%;
+      justify-content: center;
+      padding: 0.95rem 1rem;
+    }
+
+    .hint-card {
+      padding: 1.25rem 1rem;
+    }
+
+    .answer-input {
+      font-size: 1.45rem;
+      padding: 1rem 1rem;
+    }
+
+    .word-chip {
+      font-size: 0.95rem;
+      padding: 0.9rem 0.8rem;
+    }
+
+    .message-bubble {
+      font-size: 1.35rem;
+      padding: 0.85rem 1rem;
+    }
+
+    .bubble-1,
+    .bubble-2,
+    .bubble-3 {
+      display: none;
+    }
+  }
 }
