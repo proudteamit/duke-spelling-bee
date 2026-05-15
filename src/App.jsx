@@ -186,24 +186,28 @@ export default function SpellingBeeGame() {
 
   return (
     <div className="page-bg min-h-screen flex items-center justify-center p-4 overflow-hidden relative">
-      <div className="bubble bubble-1" />
-      <div className="bubble bubble-2" />
-      <div className="bubble bubble-3" />
-      <div className="absolute left-6 top-10 text-6xl animate-bounce">🐝</div>
-      <div className="absolute right-10 top-24 text-5xl animate-pulse">🌟</div>
-      <div className="absolute bottom-12 left-10 text-6xl animate-bounce">🍭</div>
-      <div className="absolute bottom-12 right-10 text-6xl animate-pulse">🦄</div>
+      <div className="hero-energy hero-energy-1" />
+      <div className="hero-energy hero-energy-2" />
+      <div className="hero-energy hero-energy-3" />
+      <div className="absolute left-6 top-10 text-6xl animate-bounce">🦸‍♀️</div>
+      <div className="absolute right-10 top-24 text-5xl animate-pulse">⚡</div>
+      <div className="absolute bottom-12 left-10 text-6xl animate-bounce">🛡️</div>
+      <div className="absolute bottom-12 right-10 text-6xl animate-pulse">🚀</div>
 
       <div className="card-surface w-full max-w-3xl p-8 text-center relative z-10">
-        <h1 className="hero-title text-6xl text-fuchsia-600 mb-3">🐝 Spelling Bee</h1>
-
-        <p className="text-xl text-slate-700 mb-6">
-          ฝึกคำศัพท์ภาษาอังกฤษแบบสนุก ๆ สำหรับเด็ก ๆ ให้คำตอบแบบชิค ๆ ด้วยเกมนี้
-        </p>
+        <div className="mb-6">
+          <div className="text-7xl">🦸‍♂️</div>
+          <h1 className="hero-title text-6xl text-amber-300 mb-3">
+            Super Spelling Heroes
+          </h1>
+          <p className="text-xl text-slate-100 max-w-2xl mx-auto">
+            ภารกิจคำศัพท์สุดเท่สำหรับเด็กน้อย พิชิตคำศัพท์แล้วเป็นฮีโร่ไปด้วยกัน!
+          </p>
+        </div>
 
         <div className="flex flex-wrap justify-center gap-4 mb-6">
           <button onClick={toggleMusic} className="btn-secondary">
-            {musicOn ? "🎵 ปิดเพลง" : "🔊 เปิดเพลง"}
+            {musicOn ? "🎵 ปิดซาวด์" : "🎧 เปิดซาวด์"}
           </button>
 
           <div className="fancy-chip">⭐ Stars: {stars}</div>
@@ -211,30 +215,43 @@ export default function SpellingBeeGame() {
         </div>
 
         <div className="hint-card mb-6">
+          <div className="mb-4">
+            <span className="badge">MISSION</span>
+            <p className="mt-3 text-slate-200">
+              กดฟังคำศัพท์ แล้วพิมพ์คำตอบให้ถูกต้องเพื่อสะสมพลังฮีโร่!
+            </p>
+          </div>
+
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <button onClick={speakWord} className="btn-primary">
-              🎧 ฟังคำนี้
+              🎧 ฟังคำศัพท์
             </button>
 
             <div className="flex flex-wrap gap-3 justify-center">
-              <button onClick={() => setShowWord((prev) => !prev)} className="btn-accent">
-                {showWord ? "ซ่อนคำ" : "ดูคำ"}
+              <button
+                onClick={() => setShowWord((prev) => !prev)}
+                className="btn-accent"
+              >
+                {showWord ? "ซ่อนคำลับ" : "เปิดคำลับ"}
               </button>
 
-              <button onClick={() => setShowThai((prev) => !prev)} className="btn-accent">
+              <button
+                onClick={() => setShowThai((prev) => !prev)}
+                className="btn-accent"
+              >
                 {showThai ? "ซ่อนคำแปล" : "ดูคำแปลไทย"}
               </button>
             </div>
           </div>
 
           {showWord && (
-            <div className="mt-4 text-5xl font-black text-purple-700 animate-bounce">
+            <div className="mt-4 text-5xl font-black text-cyan-200 animate-bounce">
               {currentWord.en}
             </div>
           )}
 
           {showThai && (
-            <div className="mt-4 text-3xl font-black text-fuchsia-700 bg-fuchsia-50 rounded-[28px] py-4 shadow-inner">
+            <div className="mt-4 text-3xl font-black text-amber-950 bg-amber-100 rounded-[28px] py-4 shadow-inner">
               {currentWord.th}
             </div>
           )}
@@ -245,7 +262,7 @@ export default function SpellingBeeGame() {
           value={answer}
           onChange={(event) => setAnswer(event.target.value)}
           onKeyDown={handleKeyDown}
-          placeholder="พิมพ์คำที่ได้ยินแล้วกด GO!"
+          placeholder="พิมพ์คำศัพท์แล้วกด GO!"
           className="answer-input"
         />
 
@@ -265,9 +282,9 @@ export default function SpellingBeeGame() {
           </div>
         )}
 
-        <div className="mt-8">
-          <h2 className="text-2xl font-black text-slate-700 mb-4">
-            🎨 คำศัพท์น่ารัก
+        <div className="mt-8 text-left">
+          <h2 className="text-2xl font-black text-slate-100 mb-4">
+            🦸‍♂️ ฮีโร่คำศัพท์ของเรา
           </h2>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
@@ -279,8 +296,8 @@ export default function SpellingBeeGame() {
           </div>
         </div>
 
-        <div className="mt-8 text-sm text-slate-500">
-          Made with ❤️ for น้องดุ๊ก 🐝✨
+        <div className="mt-8 text-sm text-slate-200">
+          ฝึกคำศัพท์เป็นกองทัพฮีโร่ ไปกับ น้องดุ๊ก!
         </div>
       </div>
     </div>
