@@ -185,85 +185,56 @@ export default function SpellingBeeGame() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-cyan-200 via-yellow-100 to-pink-100 flex items-center justify-center p-6 relative overflow-hidden">
-      <div className="absolute top-6 left-6 text-6xl animate-bounce">
-        🐝
-      </div>
+    <div className="page-bg min-h-screen flex items-center justify-center p-4 overflow-hidden relative">
+      <div className="bubble bubble-1" />
+      <div className="bubble bubble-2" />
+      <div className="bubble bubble-3" />
+      <div className="absolute left-6 top-10 text-6xl animate-bounce">🐝</div>
+      <div className="absolute right-10 top-24 text-5xl animate-pulse">🌟</div>
+      <div className="absolute bottom-12 left-10 text-6xl animate-bounce">🍭</div>
+      <div className="absolute bottom-12 right-10 text-6xl animate-pulse">🦄</div>
 
-      <div className="absolute top-10 right-10 text-5xl animate-pulse">
-        🌈
-      </div>
+      <div className="card-surface w-full max-w-3xl p-8 text-center relative z-10">
+        <h1 className="hero-title text-6xl text-fuchsia-600 mb-3">🐝 Spelling Bee</h1>
 
-      <div className="absolute bottom-10 left-10 text-5xl animate-bounce">
-        ⭐
-      </div>
-
-      <div className="absolute bottom-12 right-12 text-6xl animate-pulse">
-        🦄
-      </div>
-
-      <div className="card-surface w-full max-w-2xl rounded-[40px] border-yellow-300 p-8 text-center relative z-10">
-        <h1 className="hero-title text-6xl font-black text-yellow-500 animate-pulse mb-3">
-          🐝 Spelling Bee
-        </h1>
-
-        <p className="text-xl text-gray-700 mb-6">
-          Learn spelling with fun sounds and magic words!
+        <p className="text-xl text-slate-700 mb-6">
+          ฝึกคำศัพท์ภาษาอังกฤษแบบสนุก ๆ สำหรับเด็ก ๆ ให้คำตอบแบบชิค ๆ ด้วยเกมนี้
         </p>
 
-        <div className="flex justify-center mb-6">
-          <button
-            onClick={toggleMusic}
-            className="bg-purple-500 hover:scale-105 transition text-white font-black px-6 py-3 rounded-full shadow-xl text-lg"
-          >
-            {musicOn ? "🎵 Music ON" : "🔇 Music OFF"}
-          </button>
-        </div>
-
-        <div className="flex justify-center gap-4 flex-wrap mb-6">
-          <div className="bg-blue-100 rounded-2xl px-5 py-3 font-black text-lg shadow">
-            ⭐ Stars: {stars}
-          </div>
-
-          <div className="bg-green-100 rounded-2xl px-5 py-3 font-black text-lg shadow">
-            🏆 Score: {score}
-          </div>
-        </div>
-
-        <div className="bg-gradient-to-br from-yellow-100 to-orange-100 border-4 border-yellow-200 rounded-3xl p-6 mb-6 shadow-inner">
-          <button
-            onClick={speakWord}
-            className="bg-gradient-to-r from-yellow-400 to-orange-500 hover:scale-105 active:scale-95 transition text-white font-black text-3xl px-10 py-5 rounded-full shadow-2xl"
-          >
-            🎧 Listen
+        <div className="flex flex-wrap justify-center gap-4 mb-6">
+          <button onClick={toggleMusic} className="btn-secondary">
+            {musicOn ? "🎵 ปิดเพลง" : "🔊 เปิดเพลง"}
           </button>
 
-          <div className="mt-5">
-            <button
-              onClick={() => setShowWord((prev) => !prev)}
-              className="text-blue-600 underline font-bold text-lg"
-            >
-              {showWord ? "Hide Hint" : "Show Hint"}
+          <div className="fancy-chip">⭐ Stars: {stars}</div>
+          <div className="fancy-chip">🏆 Score: {score}</div>
+        </div>
+
+        <div className="hint-card mb-6">
+          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+            <button onClick={speakWord} className="btn-primary">
+              🎧 ฟังคำนี้
             </button>
+
+            <div className="flex flex-wrap gap-3 justify-center">
+              <button onClick={() => setShowWord((prev) => !prev)} className="btn-accent">
+                {showWord ? "ซ่อนคำ" : "ดูคำ"}
+              </button>
+
+              <button onClick={() => setShowThai((prev) => !prev)} className="btn-accent">
+                {showThai ? "ซ่อนคำแปล" : "ดูคำแปลไทย"}
+              </button>
+            </div>
           </div>
 
           {showWord && (
-            <div className="mt-4 text-5xl font-black text-purple-600 animate-bounce">
+            <div className="mt-4 text-5xl font-black text-purple-700 animate-bounce">
               {currentWord.en}
             </div>
           )}
 
-          <div className="mt-5 flex justify-center">
-            <button
-              onClick={() => setShowThai((prev) => !prev)}
-              className="bg-gradient-to-r from-cyan-400 to-blue-500 hover:scale-105 transition text-white font-black px-6 py-3 rounded-full shadow-xl text-lg"
-            >
-              🇹🇭 {showThai ? "Hide Thai" : "Show Thai Meaning"}
-            </button>
-          </div>
-
           {showThai && (
-            <div className="mt-4 text-3xl font-black text-green-600 bg-green-100 rounded-3xl py-4 animate-pulse shadow-lg">
+            <div className="mt-4 text-3xl font-black text-fuchsia-700 bg-fuchsia-50 rounded-[28px] py-4 shadow-inner">
               {currentWord.th}
             </div>
           )}
@@ -274,50 +245,41 @@ export default function SpellingBeeGame() {
           value={answer}
           onChange={(event) => setAnswer(event.target.value)}
           onKeyDown={handleKeyDown}
-          placeholder=""
-          className="w-full text-center text-3xl font-black bg-pink-50 border-4 border-pink-200 rounded-3xl p-5 mb-5 focus:outline-none focus:border-pink-500"
+          placeholder="พิมพ์คำที่ได้ยินแล้วกด GO!"
+          className="answer-input"
         />
 
-        <div className="flex justify-center gap-4 flex-wrap">
-          <button
-            onClick={checkAnswer}
-            className="bg-gradient-to-r from-green-400 to-emerald-500 hover:scale-105 active:scale-95 transition text-white font-black px-10 py-5 rounded-3xl text-2xl shadow-2xl"
-          >
+        <div className="flex flex-wrap justify-center gap-4">
+          <button onClick={checkAnswer} className="btn-primary">
             🚀 GO!
           </button>
 
-          <button
-            onClick={pickRandomWord}
-            className="bg-gradient-to-r from-pink-400 to-fuchsia-500 hover:scale-105 active:scale-95 transition text-white font-black px-10 py-5 rounded-3xl text-2xl shadow-2xl"
-          >
-            🎁 Surprise Word
+          <button onClick={pickRandomWord} className="btn-secondary">
+            🎁 คำใหม่
           </button>
         </div>
 
         {message && (
-          <div className="mt-6 bg-purple-100 text-purple-700 text-4xl font-black rounded-3xl py-4 animate-bounce shadow-lg">
+          <div className="message-bubble">
             {message}
           </div>
         )}
 
         <div className="mt-8">
-          <h2 className="text-2xl font-black text-gray-700 mb-4">
-            🎨 Fun Word Collection
+          <h2 className="text-2xl font-black text-slate-700 mb-4">
+            🎨 คำศัพท์น่ารัก
           </h2>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {WORDS.slice(0, 16).map((word) => (
-              <div
-                key={word.en}
-                className="bg-gradient-to-br from-sky-100 to-cyan-100 rounded-2xl px-3 py-3 text-center font-black text-lg shadow hover:scale-105 transition"
-              >
+              <div key={word.en} className="word-chip">
                 {word.en}
               </div>
             ))}
           </div>
         </div>
 
-        <div className="mt-8 text-sm text-gray-500">
+        <div className="mt-8 text-sm text-slate-500">
           Made with ❤️ for น้องดุ๊ก 🐝✨
         </div>
       </div>
