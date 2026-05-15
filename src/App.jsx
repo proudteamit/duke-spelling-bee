@@ -185,156 +185,131 @@ export default function SpellingBeeGame() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-cyan-300 via-blue-400 to-purple-500 flex items-center justify-center p-4 relative overflow-hidden">
-      {/* Premium animated background */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-8 left-10 text-9xl animate-bounce opacity-70">🐝</div>
-        <div className="absolute top-24 right-16 text-8xl animate-pulse opacity-60">✨</div>
-        <div className="absolute bottom-32 left-8 text-8xl opacity-50" style={{animation: "bounce 2s infinite 0.6s"}}>⭐</div>
-        <div className="absolute bottom-16 right-12 text-9xl opacity-50" style={{animation: "pulse 2s infinite 0.4s"}}>🌈</div>
-        <div className="absolute top-1/2 left-1/3 text-7xl opacity-40 animate-pulse">💫</div>
-        <div className="absolute top-1/3 right-1/4 text-7xl opacity-45" style={{animation: "bounce 2s infinite 1.2s"}}>🎈</div>
+    <div className="min-h-screen bg-gradient-to-b from-cyan-200 via-yellow-100 to-pink-100 flex items-center justify-center p-6 relative overflow-hidden">
+      <div className="absolute top-6 left-6 text-6xl animate-bounce">
+        🐝
       </div>
 
-      {/* Main container */}
-      <div className="w-full max-w-2xl relative z-10">
-        
-        {/* Premium Header Card */}
-        <div className="bg-white bg-opacity-99 backdrop-blur-2xl rounded-3xl shadow-2xl p-8 md:p-10 mb-8 text-center border-2 border-white border-opacity-60">
-          <div className="text-9xl mb-4 drop-shadow-lg animate-bounce">🐝</div>
-          <h1 className="text-7xl md:text-8xl font-black bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent mb-3 drop-shadow-lg">
-            Spelling Bee
-          </h1>
-          <p className="text-2xl md:text-3xl font-bold text-gray-700 mb-8 drop-shadow-md">
-            Master English Spelling! 🎓
-          </p>
+      <div className="absolute top-10 right-10 text-5xl animate-pulse">
+        🌈
+      </div>
 
-          {/* Premium stats */}
-          <div className="grid grid-cols-2 gap-5 md:gap-6">
-            <div className="bg-gradient-to-br from-yellow-300 to-orange-400 rounded-2xl p-6 shadow-xl transform hover:scale-110 transition hover:shadow-2xl">
-              <p className="text-5xl mb-2">⭐</p>
-              <p className="text-4xl md:text-5xl font-black text-white drop-shadow-lg">{stars}</p>
-              <p className="text-sm font-bold text-white text-opacity-90 mt-1">Stars Earned</p>
-            </div>
-            <div className="bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl p-6 shadow-xl transform hover:scale-110 transition hover:shadow-2xl">
-              <p className="text-5xl mb-2">🏆</p>
-              <p className="text-4xl md:text-5xl font-black text-white drop-shadow-lg">{score}</p>
-              <p className="text-sm font-bold text-white text-opacity-90 mt-1">Score Points</p>
-            </div>
-          </div>
-        </div>
+      <div className="absolute bottom-10 left-10 text-5xl animate-bounce">
+        ⭐
+      </div>
 
-        {/* Premium Game Card */}
-        <div className="bg-white bg-opacity-99 backdrop-blur-2xl rounded-3xl shadow-2xl p-8 md:p-10 mb-8 border-2 border-white border-opacity-60">
-          
-          {/* Listen Button - Premium */}
-          <button
-            onClick={speakWord}
-            className="w-full bg-gradient-to-r from-yellow-400 via-orange-400 to-yellow-500 hover:from-yellow-500 hover:via-orange-500 hover:to-yellow-600 text-white font-black text-3xl md:text-4xl py-7 md:py-8 rounded-2xl shadow-2xl transition transform hover:scale-105 active:scale-95 mb-7 drop-shadow-xl"
-          >
-            🎧 Listen to Word
-          </button>
+      <div className="absolute bottom-12 right-12 text-6xl animate-pulse">
+        🦄
+      </div>
 
-          {/* Hint Controls - Premium */}
-          <div className="grid grid-cols-2 gap-4 mb-7">
-            <button
-              onClick={() => setShowWord((prev) => !prev)}
-              className={`py-5 px-4 rounded-xl font-bold text-lg md:text-xl transition transform ${
-                showWord
-                  ? "bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg scale-105 drop-shadow-lg"
-                  : "bg-gradient-to-br from-gray-100 to-gray-200 text-gray-700 hover:bg-gradient-to-br hover:from-gray-200 hover:to-gray-300 hover:scale-105"
-              }`}
-            >
-              💡 {showWord ? "Hide" : "Show"} Hint
-            </button>
-            <button
-              onClick={() => setShowThai((prev) => !prev)}
-              className={`py-5 px-4 rounded-xl font-bold text-lg md:text-xl transition transform ${
-                showThai
-                  ? "bg-gradient-to-r from-green-500 to-emerald-500 text-white shadow-lg scale-105 drop-shadow-lg"
-                  : "bg-gradient-to-br from-gray-100 to-gray-200 text-gray-700 hover:bg-gradient-to-br hover:from-gray-200 hover:to-gray-300 hover:scale-105"
-              }`}
-            >
-              🇹🇭 {showThai ? "Hide" : "Thai"}
-            </button>
-          </div>
+      <div className="bg-white w-full max-w-2xl rounded-[40px] shadow-2xl border-[6px] border-yellow-300 p-8 text-center relative z-10">
+        <h1 className="text-6xl font-black text-yellow-500 animate-pulse mb-3">
+          🐝 Spelling Bee
+        </h1>
 
-          {/* English Hint - Premium */}
-          {showWord && (
-            <div className="bg-gradient-to-br from-blue-100 to-cyan-100 border-4 border-blue-400 rounded-3xl p-7 mb-7 text-center animate-bounce shadow-lg">
-              <p className="text-gray-600 text-sm font-black mb-2">📝 English Word</p>
-              <p className="text-6xl md:text-7xl font-black text-blue-700 drop-shadow-lg">{currentWord.en}</p>
-            </div>
-          )}
+        <p className="text-xl text-gray-700 mb-6">
+          Learn spelling with fun sounds and magic words!
+        </p>
 
-          {/* Thai Hint - Premium */}
-          {showThai && (
-            <div className="bg-gradient-to-br from-green-100 to-emerald-100 border-4 border-green-400 rounded-3xl p-7 mb-7 text-center animate-bounce shadow-lg">
-              <p className="text-gray-600 text-sm font-black mb-2">🇹🇭 Thai Meaning</p>
-              <p className="text-6xl md:text-7xl font-black text-green-700 drop-shadow-lg">{currentWord.th}</p>
-            </div>
-          )}
-
-          {/* Input Field - Premium */}
-          <input
-            type="text"
-            value={answer}
-            onChange={(event) => setAnswer(event.target.value)}
-            onKeyDown={handleKeyDown}
-            placeholder="Type your answer here..."
-            className="w-full text-center text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-50 to-pink-50 border-3 border-purple-300 rounded-2xl p-6 mb-7 focus:outline-none focus:border-purple-500 focus:ring-4 focus:ring-purple-200 transition placeholder:text-gray-400 shadow-lg"
-          />
-
-          {/* Action Buttons - Premium */}
-          <div className="space-y-4">
-            <button
-              onClick={checkAnswer}
-              className="w-full bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-black text-3xl md:text-4xl py-6 rounded-2xl shadow-xl transition transform hover:scale-105 active:scale-95 drop-shadow-lg"
-            >
-              ✅ Check Answer
-            </button>
-
-            <button
-              onClick={pickRandomWord}
-              className="w-full bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-black text-2xl md:text-3xl py-6 rounded-2xl shadow-xl transition transform hover:scale-105 active:scale-95 drop-shadow-lg"
-            >
-              🎲 Skip & New Word
-            </button>
-          </div>
-        </div>
-
-        {/* Message Display - Premium */}
-        {message && (
-          <div className="bg-white bg-opacity-99 backdrop-blur-2xl rounded-3xl shadow-2xl p-8 mb-8 text-center border-2 border-white border-opacity-60 animate-bounce">
-            <p className="text-5xl md:text-6xl font-black bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent drop-shadow-lg">{message}</p>
-          </div>
-        )}
-
-        {/* Music Toggle - Premium */}
-        <div className="text-center mb-10">
+        <div className="flex justify-center mb-6">
           <button
             onClick={toggleMusic}
-            className={`px-10 py-4 rounded-full font-black text-2xl transition transform ${
-              musicOn
-                ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-xl scale-110 drop-shadow-lg"
-                : "bg-white bg-opacity-90 text-gray-800 shadow-lg hover:bg-opacity-100 hover:scale-105"
-            }`}
+            className="bg-purple-500 hover:scale-105 transition text-white font-black px-6 py-3 rounded-full shadow-xl text-lg"
           >
             {musicOn ? "🎵 Music ON" : "🔇 Music OFF"}
           </button>
         </div>
 
-        {/* Word Collection - Premium */}
-        <div className="bg-white bg-opacity-99 backdrop-blur-2xl rounded-3xl shadow-2xl p-8 md:p-10 border-2 border-white border-opacity-60">
-          <h3 className="text-center font-black text-4xl md:text-5xl bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-8 drop-shadow-lg">
-            📚 Word Collection
-          </h3>
-          <div className="grid grid-cols-3 md:grid-cols-4 gap-4">
-            {WORDS.map((word, idx) => (
+        <div className="flex justify-center gap-4 flex-wrap mb-6">
+          <div className="bg-blue-100 rounded-2xl px-5 py-3 font-black text-lg shadow">
+            ⭐ Stars: {stars}
+          </div>
+
+          <div className="bg-green-100 rounded-2xl px-5 py-3 font-black text-lg shadow">
+            🏆 Score: {score}
+          </div>
+        </div>
+
+        <div className="bg-gradient-to-br from-yellow-100 to-orange-100 border-4 border-yellow-200 rounded-3xl p-6 mb-6 shadow-inner">
+          <button
+            onClick={speakWord}
+            className="bg-gradient-to-r from-yellow-400 to-orange-500 hover:scale-105 active:scale-95 transition text-white font-black text-3xl px-10 py-5 rounded-full shadow-2xl"
+          >
+            🎧 Listen
+          </button>
+
+          <div className="mt-5">
+            <button
+              onClick={() => setShowWord((prev) => !prev)}
+              className="text-blue-600 underline font-bold text-lg"
+            >
+              {showWord ? "Hide Hint" : "Show Hint"}
+            </button>
+          </div>
+
+          {showWord && (
+            <div className="mt-4 text-5xl font-black text-purple-600 animate-bounce">
+              {currentWord.en}
+            </div>
+          )}
+
+          <div className="mt-5 flex justify-center">
+            <button
+              onClick={() => setShowThai((prev) => !prev)}
+              className="bg-gradient-to-r from-cyan-400 to-blue-500 hover:scale-105 transition text-white font-black px-6 py-3 rounded-full shadow-xl text-lg"
+            >
+              🇹🇭 {showThai ? "Hide Thai" : "Show Thai Meaning"}
+            </button>
+          </div>
+
+          {showThai && (
+            <div className="mt-4 text-3xl font-black text-green-600 bg-green-100 rounded-3xl py-4 animate-pulse shadow-lg">
+              {currentWord.th}
+            </div>
+          )}
+        </div>
+
+        <input
+          type="text"
+          value={answer}
+          onChange={(event) => setAnswer(event.target.value)}
+          onKeyDown={handleKeyDown}
+          placeholder=""
+          className="w-full text-center text-3xl font-black bg-pink-50 border-4 border-pink-200 rounded-3xl p-5 mb-5 focus:outline-none focus:border-pink-500"
+        />
+
+        <div className="flex justify-center gap-4 flex-wrap">
+          <button
+            onClick={checkAnswer}
+            className="bg-gradient-to-r from-green-400 to-emerald-500 hover:scale-105 active:scale-95 transition text-white font-black px-10 py-5 rounded-3xl text-2xl shadow-2xl"
+          >
+            🚀 GO!
+          </button>
+
+          <button
+            onClick={pickRandomWord}
+            className="bg-gradient-to-r from-pink-400 to-fuchsia-500 hover:scale-105 active:scale-95 transition text-white font-black px-10 py-5 rounded-3xl text-2xl shadow-2xl"
+          >
+            🎁 Surprise Word
+          </button>
+        </div>
+
+        {message && (
+          <div className="mt-6 bg-purple-100 text-purple-700 text-4xl font-black rounded-3xl py-4 animate-bounce shadow-lg">
+            {message}
+          </div>
+        )}
+
+        <div className="mt-8">
+          <h2 className="text-2xl font-black text-gray-700 mb-4">
+            🎨 Fun Word Collection
+          </h2>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            {WORDS.slice(0, 16).map((word) => (
               <div
                 key={word.en}
-                className="bg-gradient-to-br from-indigo-200 via-purple-200 to-pink-200 rounded-2xl p-5 text-center font-black text-lg md:text-xl text-gray-800 shadow-lg hover:shadow-2xl transition transform hover:scale-125 hover:-translate-y-2 hover:rotate-1"
-                style={{animationDelay: `${idx * 0.05}s`}}
+                className="bg-gradient-to-br from-sky-100 to-cyan-100 rounded-2xl px-3 py-3 text-center font-black text-lg shadow hover:scale-105 transition"
               >
                 {word.en}
               </div>
@@ -342,23 +317,10 @@ export default function SpellingBeeGame() {
           </div>
         </div>
 
-        {/* Footer */}
-        <div className="text-center mt-10 text-white drop-shadow-xl">
-          <p className="font-black text-xl drop-shadow-lg">Made with ❤️ for น้องดุ๊ก 🐝</p>
-          <p className="text-base text-white text-opacity-95 mt-2 font-semibold drop-shadow-md">Keep spelling, keep learning! ✨🎓</p>
+        <div className="mt-8 text-sm text-gray-500">
+          Made with ❤️ for น้องดุ๊ก 🐝✨
         </div>
       </div>
-
-      <style>{`
-        @keyframes bounce {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-25px); }
-        }
-        @keyframes pulse {
-          0%, 100% { opacity: 0.6; }
-          50% { opacity: 1; }
-        }
-      `}</style>
     </div>
   );
 }
