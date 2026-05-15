@@ -185,89 +185,95 @@ export default function SpellingBeeGame() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-500 via-pink-500 to-red-400 flex items-center justify-center p-4 md:p-6 relative overflow-hidden">
-      {/* Background decorations */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-10 left-10 text-6xl md:text-8xl animate-bounce">🐝</div>
-        <div className="absolute top-1/4 right-5 text-5xl md:text-7xl animate-pulse">✨</div>
-        <div className="absolute bottom-20 left-5 text-6xl md:text-8xl animate-bounce" style={{animationDelay: "0.5s"}}>🌟</div>
-        <div className="absolute bottom-10 right-10 text-5xl md:text-7xl animate-pulse" style={{animationDelay: "0.3s"}}>🦄</div>
+    <div className="min-h-screen bg-gradient-to-b from-indigo-600 via-purple-600 to-pink-600 flex items-center justify-center p-4 relative overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-10 left-5 text-7xl animate-bounce opacity-80">🐝</div>
+        <div className="absolute top-1/3 right-8 text-6xl animate-pulse opacity-60">✨</div>
+        <div className="absolute bottom-1/4 left-10 text-6xl animate-bounce opacity-70" style={{animationDelay: "0.3s"}}>⭐</div>
+        <div className="absolute bottom-10 right-5 text-7xl animate-pulse opacity-60" style={{animationDelay: "0.5s"}}>🌈</div>
       </div>
 
-      {/* Main container */}
-      <div className="w-full max-w-md relative z-10">
+      {/* Main content */}
+      <div className="w-full max-w-lg relative z-10">
         {/* Header */}
         <div className="text-center mb-8">
-          <h1 className="text-5xl md:text-6xl font-black mb-2 drop-shadow-lg">
-            🐝 Spelling Bee
+          <div className="text-7xl mb-3 drop-shadow-lg">🐝</div>
+          <h1 className="text-5xl md:text-6xl font-black text-white drop-shadow-lg mb-2">
+            Spelling Bee
           </h1>
-          <p className="text-white text-lg md:text-xl font-semibold drop-shadow-md">
-            Master Your Spelling Skills!
+          <p className="text-lg md:text-xl text-white text-opacity-90 font-semibold drop-shadow-md">
+            Master English Spelling! 🎓
           </p>
         </div>
 
-        {/* Score section */}
-        <div className="grid grid-cols-2 gap-3 mb-6">
-          <div className="bg-white bg-opacity-90 backdrop-blur rounded-2xl p-4 text-center shadow-xl">
-            <div className="text-3xl font-black text-yellow-500">⭐</div>
-            <div className="text-2xl font-black text-gray-800">{stars}</div>
-            <div className="text-sm font-bold text-gray-600">Stars</div>
+        {/* Score cards */}
+        <div className="grid grid-cols-2 gap-4 mb-8">
+          <div className="bg-white bg-opacity-95 backdrop-blur-md rounded-2xl p-6 shadow-xl hover:shadow-2xl transition transform hover:scale-105">
+            <div className="text-center">
+              <div className="text-5xl mb-2">⭐</div>
+              <p className="text-4xl font-black text-indigo-600 mb-1">{stars}</p>
+              <p className="text-sm font-bold text-gray-600">Stars Earned</p>
+            </div>
           </div>
-          <div className="bg-white bg-opacity-90 backdrop-blur rounded-2xl p-4 text-center shadow-xl">
-            <div className="text-3xl font-black text-blue-500">🏆</div>
-            <div className="text-2xl font-black text-gray-800">{score}</div>
-            <div className="text-sm font-bold text-gray-600">Score</div>
+
+          <div className="bg-white bg-opacity-95 backdrop-blur-md rounded-2xl p-6 shadow-xl hover:shadow-2xl transition transform hover:scale-105">
+            <div className="text-center">
+              <div className="text-5xl mb-2">🏆</div>
+              <p className="text-4xl font-black text-purple-600 mb-1">{score}</p>
+              <p className="text-sm font-bold text-gray-600">Score</p>
+            </div>
           </div>
         </div>
 
         {/* Main game card */}
-        <div className="bg-white bg-opacity-95 backdrop-blur rounded-3xl shadow-2xl p-6 md:p-8 mb-6">
+        <div className="bg-white bg-opacity-98 backdrop-blur-lg rounded-3xl shadow-2xl p-8 mb-6">
           
-          {/* Listen button */}
+          {/* Listen button - Primary action */}
           <button
             onClick={speakWord}
-            className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 active:scale-95 transition text-white font-black text-2xl md:text-3xl py-4 md:py-5 rounded-2xl shadow-lg mb-6 transform hover:scale-105"
+            className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-black text-2xl md:text-3xl py-6 rounded-2xl shadow-lg transition transform hover:scale-105 active:scale-95 mb-6"
           >
-            🎧 Listen to Word
+            🎧 Listen to the Word
           </button>
 
-          {/* Hint buttons */}
-          <div className="flex gap-3 mb-6">
+          {/* Hint controls */}
+          <div className="grid grid-cols-2 gap-3 mb-6">
             <button
               onClick={() => setShowWord((prev) => !prev)}
-              className={`flex-1 py-3 px-4 rounded-xl font-bold text-sm md:text-base transition transform ${
+              className={`py-4 px-4 rounded-xl font-bold text-sm md:text-base transition transform ${
                 showWord
-                  ? "bg-blue-500 text-white shadow-lg scale-105"
-                  : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                  ? "bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg scale-105"
+                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
               }`}
             >
               💡 {showWord ? "Hide" : "Show"} Hint
             </button>
             <button
               onClick={() => setShowThai((prev) => !prev)}
-              className={`flex-1 py-3 px-4 rounded-xl font-bold text-sm md:text-base transition transform ${
+              className={`py-4 px-4 rounded-xl font-bold text-sm md:text-base transition transform ${
                 showThai
-                  ? "bg-green-500 text-white shadow-lg scale-105"
-                  : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                  ? "bg-gradient-to-r from-green-500 to-green-600 text-white shadow-lg scale-105"
+                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
               }`}
             >
-              🇹🇭 {showThai ? "Hide" : "Thai"}
+              🇹🇭 {showThai ? "Hide" : "Show"} Thai
             </button>
           </div>
 
-          {/* Show hint */}
+          {/* Hint display - English */}
           {showWord && (
-            <div className="bg-blue-100 border-2 border-blue-300 rounded-2xl p-4 mb-6 text-center animate-bounce">
-              <p className="text-gray-600 text-sm font-semibold mb-1">English Word:</p>
-              <p className="text-3xl md:text-4xl font-black text-blue-600">{currentWord.en}</p>
+            <div className="bg-gradient-to-r from-blue-50 to-blue-100 border-2 border-blue-300 rounded-2xl p-5 mb-6 text-center animate-pulse">
+              <p className="text-gray-600 text-sm font-semibold mb-2">English Word:</p>
+              <p className="text-4xl md:text-5xl font-black text-blue-600">{currentWord.en}</p>
             </div>
           )}
 
-          {/* Show Thai */}
+          {/* Hint display - Thai */}
           {showThai && (
-            <div className="bg-green-100 border-2 border-green-300 rounded-2xl p-4 mb-6 text-center animate-bounce">
-              <p className="text-gray-600 text-sm font-semibold mb-1">Thai Meaning:</p>
-              <p className="text-3xl md:text-4xl font-black text-green-600">{currentWord.th}</p>
+            <div className="bg-gradient-to-r from-green-50 to-green-100 border-2 border-green-300 rounded-2xl p-5 mb-6 text-center animate-pulse">
+              <p className="text-gray-600 text-sm font-semibold mb-2">Thai Meaning:</p>
+              <p className="text-4xl md:text-5xl font-black text-green-600">{currentWord.th}</p>
             </div>
           )}
 
@@ -277,43 +283,43 @@ export default function SpellingBeeGame() {
             value={answer}
             onChange={(event) => setAnswer(event.target.value)}
             onKeyDown={handleKeyDown}
-            placeholder="Type the word here..."
-            className="w-full text-center text-2xl md:text-3xl font-black bg-gradient-to-r from-pink-50 to-purple-50 border-3 border-purple-300 rounded-2xl p-4 md:p-5 mb-6 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-300 transition"
+            placeholder="Type your answer..."
+            className="w-full text-center text-2xl md:text-3xl font-bold bg-gradient-to-r from-purple-50 to-pink-50 border-3 border-purple-300 rounded-2xl p-5 mb-6 focus:outline-none focus:border-purple-500 focus:ring-4 focus:ring-purple-300 transition placeholder:text-gray-400"
           />
 
           {/* Action buttons */}
-          <div className="flex flex-col gap-3">
+          <div className="space-y-3">
             <button
               onClick={checkAnswer}
-              className="w-full bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 active:scale-95 transition text-white font-black text-xl md:text-2xl py-4 rounded-2xl shadow-xl transform hover:scale-105"
+              className="w-full bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-black text-2xl py-5 rounded-2xl shadow-lg transition transform hover:scale-105 active:scale-95"
             >
-              🚀 Check Answer
+              ✅ Check Answer
             </button>
 
             <button
               onClick={pickRandomWord}
-              className="w-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 active:scale-95 transition text-white font-black text-xl md:text-2xl py-4 rounded-2xl shadow-xl transform hover:scale-105"
+              className="w-full bg-gradient-to-r from-orange-500 to-yellow-500 hover:from-orange-600 hover:to-yellow-600 text-white font-black text-xl py-5 rounded-2xl shadow-lg transition transform hover:scale-105 active:scale-95"
             >
-              🎁 Skip Word
+              🎲 Skip Word
             </button>
           </div>
         </div>
 
         {/* Message display */}
         {message && (
-          <div className="bg-white bg-opacity-95 backdrop-blur rounded-2xl shadow-xl p-6 text-center mb-6 animate-bounce">
-            <p className="text-2xl md:text-3xl font-black text-gray-800">{message}</p>
+          <div className="bg-white bg-opacity-98 backdrop-blur-lg rounded-2xl shadow-2xl p-6 mb-6 text-center animate-bounce">
+            <p className="text-3xl md:text-4xl font-black text-gray-800">{message}</p>
           </div>
         )}
 
         {/* Music toggle */}
-        <div className="text-center mb-6">
+        <div className="text-center mb-8">
           <button
             onClick={toggleMusic}
-            className={`px-6 py-3 rounded-full font-bold text-lg transition transform ${
+            className={`px-8 py-3 rounded-full font-bold text-lg transition transform ${
               musicOn
-                ? "bg-purple-600 text-white shadow-lg scale-105"
-                : "bg-white text-gray-700 shadow-md hover:bg-gray-100"
+                ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg scale-110"
+                : "bg-white bg-opacity-80 text-gray-700 shadow-md hover:bg-opacity-100"
             }`}
           >
             {musicOn ? "🎵 Music ON" : "🔇 Music OFF"}
@@ -321,15 +327,15 @@ export default function SpellingBeeGame() {
         </div>
 
         {/* Word collection */}
-        <div className="bg-white bg-opacity-90 backdrop-blur rounded-2xl shadow-lg p-5">
-          <h3 className="text-center font-black text-gray-800 mb-4 text-lg">
+        <div className="bg-white bg-opacity-95 backdrop-blur-lg rounded-2xl shadow-xl p-6">
+          <h3 className="text-center font-black text-2xl text-gray-800 mb-5">
             📚 Word Collection
           </h3>
           <div className="grid grid-cols-3 md:grid-cols-4 gap-2">
             {WORDS.map((word) => (
               <div
                 key={word.en}
-                className="bg-gradient-to-br from-purple-200 to-pink-200 rounded-lg p-3 text-center font-bold text-sm md:text-base text-gray-700 shadow hover:shadow-md transition transform hover:scale-105"
+                className="bg-gradient-to-br from-indigo-100 to-purple-100 rounded-lg p-3 text-center font-bold text-sm text-gray-700 shadow hover:shadow-lg transition transform hover:scale-110"
               >
                 {word.en}
               </div>
@@ -338,8 +344,9 @@ export default function SpellingBeeGame() {
         </div>
 
         {/* Footer */}
-        <div className="text-center mt-6 text-white drop-shadow-lg">
-          <p className="font-semibold">Made with ❤️ for น้องดุ๊ก 🐝✨</p>
+        <div className="text-center mt-8 text-white drop-shadow-lg">
+          <p className="font-semibold text-lg">Made with ❤️ for น้องดุ๊ก 🐝</p>
+          <p className="text-sm text-white text-opacity-75 mt-1">Keep learning, keep improving! ✨</p>
         </div>
       </div>
     </div>
